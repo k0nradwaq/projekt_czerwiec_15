@@ -1,0 +1,4 @@
+class ChangeNameToDepartments < ActiveRecord::Migration
+  def change
+  end
+end

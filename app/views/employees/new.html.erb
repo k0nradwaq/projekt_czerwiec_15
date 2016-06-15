@@ -1,0 +1,5 @@
+<h1>new user</h1>
+<%= form_for(@employee,url: employees_path, action: :create) do |f| %>
+  <%= render 'form', f: f %>
+<%end%>
+<%= link_to 'Back', employees_path %>

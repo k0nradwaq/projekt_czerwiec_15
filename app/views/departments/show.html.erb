@@ -1,0 +1,11 @@
+
+
+<p>
+  <strong>Nazwa:</strong>
+  <%= @department.name %>
+</p>
+<p id="notice"><%= notice %></p>
+<ul class="pager">
+ <li class="previous"><%= link_to 'Edit', edit_department_path(@department) %> </li>
+ <li class="next"><%= link_to 'Back', departments_path %></li>
+</ul>

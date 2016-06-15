@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>projekt</title>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+<body>
+
+
+
+ <%= render 'layouts/header' %>
+
+
+  <div class="container">
+
+    <% if user_signed_in? %>
+      <% if current_user.admin == true %>
+        <%= render 'layouts/paneladmin' %>
+        <%else%>
+        <%= render 'layouts/paneluser' %>
+        <%end%>
+    <% end %>
+
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= render 'layouts/footer' %>
+</div>
+</body>
+</html>

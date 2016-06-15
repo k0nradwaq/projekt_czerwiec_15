@@ -1,0 +1,40 @@
+<% if @employee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this department from being saved:</h2>
+
+    <ul>
+    <% @employee.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+ <div class="field">
+   <%= f.label :email %><br/>
+   <%= f.email_field :email, autofocus: true %>
+ </div>
+ <div class="field">
+   <%= f.label :password %>
+   <% if @minimum_password_length %>
+   <em>(<%= @minimum_password_length %> characters minimum)</em>
+   <% end %><br />
+   <%= f.password_field :password, autocomplete: "off" %>
+ </div>
+ <div class="field">
+   <%= f.label :password_confirmation %><br />
+   <%= f.password_field :password_confirmation, autocomplete: "off" %>
+ </div>
+
+ <div class="field">
+   <%= f.label :department_id %><br />
+   <%= f.select :department_id, Department.all.map{|d| [d.name, d.id]} %>
+
+ </div>
+
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Appearances</h1>
+<%= form_for(:search, method: 'get', url: appearances_url) do |f| %>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <%= f.select :user_id, User.all.map{|u| [u.email, u.id]}, include_blank: true %>
+  <%= f.submit :filter %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rozpoczęcie pracy</th>
+      <th>Użytkownik</th>
+
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appearances.each do |appearance| %>
+      <tr>
+        <td><%= appearance.created_at %></td>
+        <td><%= appearance.user.try(:email) %></td>
+        <td><%= link_to 'Show', appearance %></td>
+        <td><%= link_to 'Edit', edit_appearance_path(appearance) %></td>
+        <td><%= link_to 'Destroy', appearance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

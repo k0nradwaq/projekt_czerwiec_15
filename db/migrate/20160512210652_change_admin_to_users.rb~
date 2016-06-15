@@ -1,0 +1,4 @@
+class ChangeAdminToUsers < ActiveRecord::Migration
+  def change
+  end
+end

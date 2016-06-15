@@ -1,0 +1,11 @@
+<h2>User</h2>
+
+<% unless @user_has_vacations %>
+  <% if Appearance.all.where(user: current_user).where("created_at > ?",Time.now-1.day ).where("created_at < ?",Time.now+1.day ).empty?  and Time.now.hour > 5 and Time.now.hour < 11  %>
+<%#Time.now.wday >0 and Time.now.wday <7%>
+<%# w Time.now.wday  0 i 7 to dni weekendu, ona są odznaczone w warunku%>
+<%# Ustawione ze godziny dodawania na lsite obecnosci sa od 5 do 11%>
+
+    <%= link_to "dodanie na liste obecnosci", create_new_appearances_path, class: "btn btn-primary"  %>
+  <%end%>
+<%end%>

@@ -1,0 +1,24 @@
+
+<header >
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Strona Główna ",   root_path %></li>
+
+      <li><%= link_to "Pomoc",   "" %></li>
+       <% if user_signed_in? %>
+         <li><%= link_to "Wyloguj sie" ,destroy_user_session_path, method: :delete %>
+       <% else %>
+         <li><%= link_to "Zaloguj sie", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+
+
+
+</header>

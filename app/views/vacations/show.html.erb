@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rozpoczęcie urlopu:</strong>
+  <%= @vacation.starttime %>
+</p>
+
+<p>
+  <strong>Zakończenie urlopu:</strong>
+  <%= @vacation.endtime %>
+</p>
+
+<p>
+  <strong>Użytkownik:</strong>
+  <%= @vacation.user_id%>
+
+
+</p>
+
+<%= link_to 'Edit', edit_vacation_path(@vacation) %> |
+<%= link_to 'Back', vacations_path %>
